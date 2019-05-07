@@ -1,0 +1,56 @@
+<div class="form-style-5">
+    <form [formGroup]="formu" (ngSubmit)="save()">
+        <fieldset>
+            <legend><span class="number">+</span> Add a New Contact</legend>
+            <div *ngIf="formu.controls['firstName'].invalid" class="alert-danger"> First Name is required and must be at least 3 characters long </div>
+            <input type="text" formControlName="firstName" placeholder="First Name *">
+
+            <div *ngIf="formu.controls['lastName'].invalid" class="alert-danger"> Last Name is required and must be at least 3 characters long </div>
+            <input type="text" formControlName="lastName" placeholder="Last Name *">
+
+            <div *ngIf="formu.controls['Address'].invalid" class="alert-danger"> Address is required </div>
+            <input type="text" formControlName="Address" placeholder="Address *">
+
+            <div *ngIf="formu.controls['Mail'].invalid" class="alert-danger">Email is required in a correct format</div>
+            <input type="email" formControlName="Mail" placeholder="Email *">
+
+            <div *ngIf="formu.controls['Phone'].invalid" class="alert-danger"> Phone number is required and at least 10 numbers long </div>
+            <input type="text" formControlName="Phone" placeholder="Phone Number *">
+
+
+        </fieldset>
+        <!--    <fieldset>
+            <legend><span class="number">+</span> Additional Info</legend>
+            <textarea name="field3" placeholder="About Your School"></textarea>
+        </fieldset> 
+            <input type="submit" />
+    -->
+
+        <button type="submit" *ngIf="!formu.invalid" class="btn btn-outline-primary btn-block animated fadeIn">
+            Guardar Contacto
+        </button>
+    </form>
+    <br>
+    <br>
+    <div *ngIf="saved">
+        <legend><span class="number">✔</span> New Contact Added</legend>
+    </div>
+
+</div>
+
+<!--
+        <form (ngSubmit)="save(formu)" #formu="ngForm" novalidate="">
+
+      <legend><span class="number">+</span> Add a New Contact</legend>
+            <div class="alert-danger" *ngIf="name.invalid"> First Name is required and must be at least 3 characters long </div>
+            <input ngModel type="text" name="fstName" #name="ngModel" placeholder="First Name *" required minlength="3">
+            <div class="alert-danger" *ngIf="sndName.invalid"> Last Name is required and must be at least 3 characters long </div>
+            <input ngModel type="text" name="sndName" #sndName="ngModel" placeholder="Last Name *" required minlength="3">
+            <div class="alert-danger" *ngIf="addr.invalid"> Address is required </div>
+            <input ngModel type="text" name="address" #addr="ngModel" placeholder="Address *" required minlength="5">
+            <div class="alert-danger" *ngIf="mail.invalid">Email is required in a correct format</div>
+            <input ngModel type="email" name="email" #mail="ngModel" placeholder="Email *" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            <div class="alert-danger" *ngIf="phone.invalid"> Phone number is required and 10 numbers long </div>
+            <input ngModel type="text" name="phone" #phone="ngModel" placeholder="{{usuario.Phone | phone: 'US'}}" required minlength="10" pattern="\d{1,10}">
+
+-->

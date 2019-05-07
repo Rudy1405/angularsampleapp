@@ -1,0 +1,33 @@
+<h1 class=" animated fadeIn">
+    {{usuario.lastName}} {{usuario.firstName}}
+    <small>
+    Posicion o Titulo
+  </small>
+</h1>
+
+<div class="row animated fadeIn fast ">
+    <div class="col-md-4">
+        <img src="https://cdn1.iconfinder.com/data/icons/navigation-elements/512/user-login-man-human-body-mobile-person-512.png" class="img-fluid" [alt]="usuario.lastName">
+        <br>
+        <br>
+        <button (click)="regresa()" type="button" class="btn btn-outline-warning btn-block"> 
+        Regresar
+      </button>
+        <button (click)="eliminaUsuario()" type="button" class="btn btn-outline-danger btn-block"> 
+          Eliminar este usuario
+        </button>
+    </div>
+    <div class="col-md-8 animated fadeIn ">
+        <h3> {{usuario.firstName}} {{usuario.lastName}} </h3>
+        <hr>
+        <h3> Address: <small> {{usuario.Address}} </small> </h3>
+        <h3> Phone: <small> {{usuario.Phone}} </small> </h3>
+        <h3> Email: <small> {{usuario.Mail}} </small> </h3>
+        <hr>
+        <h3> Notes:</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At esse mollitia numquam? Rem, facilis voluptates in ducimus, expedita error rerum ut magni laboriosam qui libero suscipit soluta dignissimos consequatur voluptatem.
+        </p>
+    </div>
+
+</div>

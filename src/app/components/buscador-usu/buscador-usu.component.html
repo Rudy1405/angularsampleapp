@@ -1,0 +1,34 @@
+<h1>
+    <small> Ususarios Encontrados con: {{termino}} </small>
+</h1>
+
+<div class="row animated fadeIn" *ngIf="usuarios.length == 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No hay resultados con el termino: {{termino}}
+        </div>
+    </div>
+</div>
+
+
+<app-loading *ngIf="loading" class="m-5">
+
+</app-loading>
+
+<div class="card-columns" *ngIf="!loading">
+
+    <div class="card text-white bg-info mb-3 animated fadeIn fast" style="max-width: 18rem;" *ngFor="let usuario of usuarios; let i = index">
+        <div class=" card-header ">Contact #{{i}} </div>
+        <div class="card-body ">
+            <h5 class="card-title ">{{usuario.lastName}} {{usuario.firstName}}</h5>
+            <p class="card-text "> <small>Address: </small> {{usuario.Address}} </p>
+            <p class="card-text "> <small>Mail: </small> {{usuario.Mail}} </p>
+            <p class="card-text "> <small>Phone: </small> {{usuario.Phone.toString() | phone: 'US' }} </p>
+        </div>
+        <div class="card-footer">
+            <button (click)="verUsuario(i)" type="button" class="btn btn-outline-warning btn-block"> 
+                    Ver mas...
+        </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<h1 class="animated fadeIn fast"> Contact List <small> Vea todos los usuarios </small> </h1>
+<br>
+<br>
+
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Buscar Contacto" aria-label="Search" (keyup.enter)="buscarUsu(buscaTexto.value)" #buscaTexto>
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="button" (click)="buscarUsu(buscaTexto.value)">Search</button>
+</form>
+
+<br>
+<br>
+
+<button class="btn btn-outline-warning my-2 my-sm-0" type="button" (click)="orderby('name')">
+    Sort By First Name
+</button>
+<button class="btn btn-outline-warning my-2 my-sm-0" type="button" (click)="orderby('lname')">
+    Sort By Last Name
+</button>
+<button class="btn btn-outline-warning my-2 my-sm-0" type="button" (click)="orderby('phone')">
+    Sort By Phone
+</button>
+<button class="btn btn-outline-warning my-2 my-sm-0" type="button" (click)="orderby('mail')">
+    Sort By E-mail
+</button>
+
+
+<br>
+<br>
+<div class="card-columns">
+
+    <!--*ngFor="let usuario of usuarios; let i = index"-->
+    <div class="card text-white bg-info mb-3 animated fadeIn fast" style="max-width: 18rem;" *ngFor="let usuario of usuarios; let i = index;">
+        <div class=" card-header ">Contact #{{i}} </div>
+        <div class="card-body ">
+            <h5 class="card-title ">{{usuario.lastName}} {{usuario.firstName}}</h5>
+            <p class="card-text "> <small>Address: </small> {{usuario.Address}} </p>
+            <p class="card-text "> <small>Mail: </small> {{usuario.Mail }} </p>
+            <p class="card-text "> <small>Phones: </small> {{usuario.Phone.toString() | phone: 'US' }} </p>
+        </div>
+        <div class="card-footer">
+            <button (click)="verUsuario(i)" type="button" class="btn btn-outline-warning btn-block"> 
+                        Ver mas...
+            </button>
+        </div>
+    </div>
+
+
+</div>
+
+<!--
+<div class="card text-white bg-info mb-3 animated fadeIn fast" style="max-width: 18rem;" *ngFor="let usuario of usuarios; let i = index">
+        <div class=" card-header ">Contact #{{i}} </div>
+        <div class="card-body ">
+            <h5 class="card-title ">{{usuario.lastName}} {{usuario.firstName}}</h5>
+            <p class="card-text "> <small>Address: </small> {{usuario.Address}} </p>
+            <p class="card-text "> <small>Mail: </small> {{usuario.Mail }} </p>
+            <p class="card-text "> <small>Phones: </small> {{usuario.Phone.toString() | phone: 'US' }} </p>
+        </div>
+        <div class="card-footer">
+            <button (click)="verUsuario(i)" type="button" class="btn btn-outline-warning btn-block"> 
+                        Ver mas...
+            </button>
+        </div>
+    </div>
+
+-->
